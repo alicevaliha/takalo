@@ -53,5 +53,14 @@ class User extends CI_Controller
         $this->load->view('user',$data);
 
      }
+     public function proposer(){
+        $idd=$_SESSION['iduser'];
+        $iprop=$this->input->post("iprop");
+        $idobjd=$this->input->post("objd");
+        $idobjoff=$this->input->post("objoff");
+        $this->Model->proposer($idd,$iprop,$idobjd,$idobjoff);
+        $data['content']='user/exchangedone';
+        $this->load->view('user',$data);
+     }
     
 }

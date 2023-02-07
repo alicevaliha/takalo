@@ -52,13 +52,17 @@ class Model extends CI_Model
         }
         return $result;
     }
-
     public function detailobjet($idobj){
         $sql="select * from v_allobjects2 where id_objet=%s";
         $sprint=sprintf($sql,$idobj);
         $query = $this->db->query($sprint);
         $row = $query->row_array();
         return $row;
+    }
+    public function proposer($iddemandeur,$idproprio,$idobjetd,$idobjeto){
+        $sql="insert into proposition values (null,%s,%s,%s,%s,0)";
+        $sprint=sprintf($sql,$iddemandeur,$idproprio,$idobjetd,$idobjeto);
+        $query = $this->db->query($sprint);
     }
 }
 ?>

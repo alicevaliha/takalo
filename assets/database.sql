@@ -35,12 +35,20 @@ create table Proposition(
     id_proposition int primary key auto_increment,
     id_demande int,
     id_proprio int,
-    id_objet int,
+    id_objetdemande int,
+    id_objetoffert int,
     stat int,
     foreign key(id_demande) references Utilisateur(id_utilisateur),
     foreign key(id_proprio) references Utilisateur(id_utilisateur),
-    foreign key(id_objet) references Objet(id_objet)
+    foreign key(id_objetdemande) references Objet(id_objet),
+    foreign key(id_objetoffert) references Objet(id_objet)
 );
+
+--stat 
+--0 : envoyée
+--1 : acceptée
+--2 : refusée
+
 create table exchanges(
     id_proposition int,
     moment datetime,

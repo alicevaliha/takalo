@@ -30,7 +30,12 @@
                                         </td>
                                         <td class="qty">
                                             <div class="cart-btn mt-100">
-                                                <a href="#" class="btn amado-btn w-100" style="max-width: fit-content;border-radius: 10px;margin-top: -50%;">Valider l'échange</a>
+                                                <form action="<?php echo base_url('user/proposer')?>" method="post">
+                                                    <input type="hidden" name="iprop" id="iprop" value="<?php echo $idproprio ?>">
+                                                    <input type="hidden" name="objd" id="objd" value="<?php echo $objdetails['id_objet'] ?>">
+                                                    <input type="hidden" name="objoff" value="<?php echo $objet['id_objet'] ?>">
+                                                    <button type="submit"  class="btn amado-btn w-100" style="max-width: fit-content;border-radius: 10px;margin-top: -50%;">Valider l'échange</button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
