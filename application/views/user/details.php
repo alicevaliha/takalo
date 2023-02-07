@@ -26,7 +26,9 @@
                             <p><?php echo $objdetails['descri']?></p>
                         </div>
                         <!-- Add to Cart Form -->
-                        <form class="cart clearfix" method="post">
+                        <form class="cart clearfix" method="post" action="<?php echo base_url('user/gotoexchange')?>">
+                            <input type="hidden" name="idobj" id="idobj" value="<?php echo $objdetails['id_objet']?>">
+                            <input type="hidden" name="id" id="id" value="<?php echo $objdetails['id_utilisateur']?>">
                             <button type="submit" name="addtocart" value="5" class="btn amado-btn">Proposer un échange</button>
                         </form>
                     </div>

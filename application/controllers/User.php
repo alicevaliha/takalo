@@ -41,5 +41,17 @@ class User extends CI_Controller
         $this->load->view('user',$data);
 
      }
+     public function gotoexchange(){
+
+        $idobj = $this->input->post("idobj");
+        $id= $this->input->post("id");
+        $data['idobj']=$idobj;
+        $data['idproprio']=$id;
+        $data['content']='user/exchange';
+        $data['objectlist'] = $this->Model->listproperobjects();
+        $data['objdetails'] = $this->Model->detailobjet($idobj);
+        $this->load->view('user',$data);
+
+     }
     
 }

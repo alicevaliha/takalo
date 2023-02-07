@@ -37,8 +37,8 @@ create table Proposition(
     id_proprio int,
     id_objet int,
     stat int,
-    foreign key(id_client) references Utilisateur(id_utilisateur),
-    foreign key(id_cible) references Utilisateur(id_utilisateur),
+    foreign key(id_demande) references Utilisateur(id_utilisateur),
+    foreign key(id_proprio) references Utilisateur(id_utilisateur),
     foreign key(id_objet) references Objet(id_objet)
 );
 create table exchanges(
@@ -76,10 +76,10 @@ insert into Objet values(null,"Rouge à lèvres rose poudré",15,7,2,"Rose a lev
 
 
 create or replace view v_allobjects as 
-select o.id_objet,o.nom_objet,o.prix,u.nom,u.id_utilisateur,o.id_cat,o.img
+select o.id_objet,o.nom_objet,o.prix,u.nom,u.id_utilisateur,o.id_cat,o.img,o.descri
 from Objet as o join Utilisateur as u on o.id_proprietaire=u.id_utilisateur;
 
 create or replace view v_allobjects2 as 
-select c.nom_categorie,p.id_objet,p.nom_objet,p.prix,p.nom,p.id_utilisateur,p.id_cat,p.img
+select c.nom_categorie,p.id_objet,p.nom_objet,p.prix,p.nom,p.id_utilisateur,p.id_cat,p.img,p.descri
 from v_allobjects as p
 join Categorie as c on p.id_cat=c.id_categorie;
