@@ -142,7 +142,6 @@
           <span>Profil</span>
         </a>
       </li><!-- End Profile Page Nav -->
-      <?php echo base_url('admin/categories')?>
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?php echo base_url('admin/categories')?>">
           <i class="bi bi-question-circle"></i>

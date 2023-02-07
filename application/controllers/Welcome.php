@@ -39,7 +39,7 @@ class Welcome extends CI_Controller {
 				redirect('welcome/adminpage');
 			}
 			else{
-				redirect('welcome/website');
+				redirect('user/index');
 			}
 			
 		}else{

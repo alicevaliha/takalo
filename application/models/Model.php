@@ -11,6 +11,7 @@ class Model extends CI_Model
         foreach ($query->result_array() as $row) {
             if ($mail == $row['email'] && $mdp == $row['mdp']) {
                 $valiny = true;
+                $_SESSION['iduser']= $row['id_utilisateur'];
             }
         }
         return $valiny;
@@ -26,6 +27,37 @@ class Model extends CI_Model
             $result[] = $row;
         }
         return $result;
+    }
+    public function listobjects(){
+        $sql="select * from v_allobjects2";
+        $query = $this->db->query($sql);
+        $result = array();
+
+        foreach($query->result_array() as $row)
+        {
+            $result[] = $row;
+        }
+        return $result;
+    }
+    public function listproperobjects(){
+        $sql="select * from v_allobjects2 where id_utilisateur=%s";
+        $sprint=sprintf($sql,$_SESSION['iduser']);
+        $query = $this->db->query($sprint);
+        $result = array();
+
+        foreach($query->result_array() as $row)
+        {
+            $result[] = $row;
+        }
+        return $result;
+    }
+
+    public function detailobjet($idobj){
+        $sql="select * from v_allobjects2 where id_objet=%s";
+        $sprint=sprintf($sql,$idobj);
+        $query = $this->db->query($sprint);
+        $row = $query->row_array();
+        return $row;
     }
 }
 ?>
