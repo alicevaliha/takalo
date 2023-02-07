@@ -18,7 +18,6 @@
           <div class="col-md-7">
             <h3>Login to <strong>Colorlib</strong></h3>
             <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
-            <?php echo base_url('welcome/login');?>
             <form action="<?php echo base_url('welcome/login');?>" method="post">
               <div class="form-group first">
                 <label for="username">Username</label>

@@ -91,3 +91,22 @@ create or replace view v_allobjects2 as
 select c.nom_categorie,p.id_objet,p.nom_objet,p.prix,p.nom,p.id_utilisateur,p.id_cat,p.img,p.descri
 from v_allobjects as p
 join Categorie as c on p.id_cat=c.id_categorie;
+
+create or replace view subquery1 as
+select v.nom_objet,v.prix,v.img,p.id_proprio,p.stat,p.id_proposition,v.nom_categorie,v.nom
+from v_allobjects2 as v
+join Proposition  as p on v.id_objet=p.id_objetdemande;
+
+create or replace view subquery2 as
+select v.nom_objet,v.prix,v.img,p.id_proprio,v.nom_categorie,v.nom
+from v_allobjects2 as v
+join Proposition  as p on v.id_objet=p.id_objetoffert;
+
+create or replace view v_propositions as 
+select demande.stat,demande.id_proposition,demande.id_proprio,demande.nom_objet as demande,demande.prix as prixdemande,demande.img as imgd,offert.nom as demandeur,demande.nom_categorie as categoried
+,offert.nom_objet as offert,offert.prix as prixoffert,offert.img as imgo,offert.nom_categorie as categorieo
+from subquery1
+as demande
+join subquery2
+as offert 
+on demande.id_proprio=offert.id_proprio;

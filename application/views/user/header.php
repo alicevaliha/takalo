@@ -71,7 +71,7 @@
                 <ul>
                     <li class="#"><a href="<?php echo base_url('user/index')?>">Home</a></li>
                     <li><a href="<?php echo base_url('user/utilisateurs')?>">Utilisateurs</a></li>
-                    <li><a href="#">Propositions</a></li>
+                    <li><a href="<?php echo base_url('user/propositions')?>">Propositions</a></li>
                 </ul>
             </nav>
             <!-- Cart Menu -->

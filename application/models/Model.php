@@ -64,5 +64,17 @@ class Model extends CI_Model
         $sprint=sprintf($sql,$iddemandeur,$idproprio,$idobjetd,$idobjeto);
         $query = $this->db->query($sprint);
     }
+    public function listprops(){
+        $sql="select * from v_propositions where id_proprio=%s";
+        $sprint=sprintf($sql,$_SESSION['iduser']);
+        $query = $this->db->query($sprint);
+        $result = array();
+
+        foreach($query->result_array() as $row)
+        {
+            $result[] = $row;
+        }
+        return $result;
+    }
 }
 ?>

@@ -62,5 +62,10 @@ class User extends CI_Controller
         $data['content']='user/exchangedone';
         $this->load->view('user',$data);
      }
+     public function propositions(){
+        $data['proposition'] = $this->Model->listprops();
+        $data['content']='user/propositions';
+        $this->load->view('user',$data);
+     }
     
 }
