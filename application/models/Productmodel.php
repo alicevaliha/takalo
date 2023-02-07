@@ -29,18 +29,7 @@
             }
             return $result;
         }
-        public function listcategorie()
-        {
-            $sql="select * from categorie";
-            $query = $this->db->query($sql);
-            $result = array();
-
-            foreach($query->result_array() as $row)
-            {
-                $result[] = $row;
-            }
-            return $result;
-        }
+      
         public function newcategorie($nomcate)
         {
             $sql="insert into categorie values(null,'%s')";

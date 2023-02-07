@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Admin extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -24,35 +24,19 @@ class Welcome extends CI_Controller {
 		$this->load->view('login');
 		
 	}		
-	public function login()
+	public function categories()
 	{
-		$mail = $this->input->post("mail");
-		$mdp = $this->input->post("mdp");
+        $this->load->model('Model');
+        $data = array();
+        $data['listecategorie'] = $this->Model->listcategorie();
+        $data['content'] = 'admin/categories';
+		$this->load->view('admin',$data);
 
-		$this->load->model('model');
-		if($this->model->checkLogin($mail,$mdp))
-		{
-			$_SESSION['mail'] = $mail;
-			$this->session->set_userdata($mail,'mail');
-
-			if($mail=='admin@gmail.com'){
-				redirect('welcome/adminpage');
-			}
-			else{
-				redirect('welcome/website');
-			}
-			
-		}else{
-			redirect('welcome/index');
-		}
 	}
 	public function website(){
 		$this->load->view('acceuil');
 	}
 	public function adminpage(){
-
-		$data['content']='admin/acceuil';
-		$this->load->view('admin',$data);
-
+		$this->load->view('admin');
 	}
 }
