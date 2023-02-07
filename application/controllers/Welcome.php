@@ -27,8 +27,29 @@ class Welcome extends CI_Controller {
 	public function login()
 	{
 		$mail = $this->input->post("mail");
-		$pass = $this->input->post("pass");
-		$this->load->view('essai');
+		$mdp = $this->input->post("mdp");
 
+		$this->load->model('model');
+		if($this->model->checkLogin($mail,$mdp))
+		{
+			$_SESSION['mail'] = $mail;
+			$this->session->set_userdata($mail,'mail');
+
+			if($mail=='admin@gmail.com'){
+				redirect('welcome/adminpage');
+			}
+			else{
+				redirect('welcome/website');
+			}
+			
+		}else{
+			redirect('welcome/index');
+		}
+	}
+	public function website(){
+		$this->load->view('acceuil');
+	}
+	public function adminpage(){
+		$this->load->view('admin');
 	}
 }
