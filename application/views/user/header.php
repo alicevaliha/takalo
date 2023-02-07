@@ -64,13 +64,13 @@
             </div>
             <!-- Logo -->
             <div class="logo">
-                <a href="index.html"><img src="<?php echo site_url() ?>assets/website/img/core-img/logo.png" alt=""></a>
+                <a href="<?php echo base_url('user/index')?>"><img src="<?php echo site_url() ?>assets/website/img/core-img/logo.png" alt=""></a>
             </div>
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
                     <li class="#"><a href="<?php echo base_url('user/index')?>">Home</a></li>
-                    <li><a href="#">Utilisateurs</a></li>
+                    <li><a href="<?php echo base_url('user/utilisateurs')?>">Utilisateurs</a></li>
                     <li><a href="#">Propositions</a></li>
                 </ul>
             </nav>

@@ -23,7 +23,7 @@ class User extends CI_Controller
 		$data = array();
 		$data['objectlist'] = $this->Model->listobjects();
 		//$data['mail'] = $this->session->userdata('mail');
-        $data['content'] = 'user/acceuil';
+        $data['content'] = 'user/utilisateurs';
 		$this->load->view('user',$data);
 
      }

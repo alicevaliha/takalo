@@ -9,7 +9,7 @@
         <?php if(isset($objectlist)) { ?>
             <?php foreach ($objectlist as $objet ) { ?>
                 <div class="single-products-catagory clearfix">
-                    <a href="<?php echo base_url('user/productdetailperso')?>/<?php echo $objet['id_objet']?>">
+                    <a href="<?php echo base_url('user/productdetail')?>/<?php echo $objet['id_objet']?>">
                         <img src="<?php echo site_url() ?>assets/website/img/<?php echo $objet['nom_categorie']?>/<?php echo $objet['img']?>" alt="">
                         <!-- Hover Content -->
                         <div class="hover-content">

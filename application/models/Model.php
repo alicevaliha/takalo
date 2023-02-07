@@ -29,8 +29,9 @@ class Model extends CI_Model
         return $result;
     }
     public function listobjects(){
-        $sql="select * from v_allobjects2";
-        $query = $this->db->query($sql);
+        $sql="select * from v_allobjects2 where id_utilisateur!=%s";
+        $sprint=sprintf($sql,$_SESSION['iduser']);
+        $query = $this->db->query($sprint);
         $result = array();
 
         foreach($query->result_array() as $row)
