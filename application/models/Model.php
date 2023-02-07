@@ -16,6 +16,13 @@ class Model extends CI_Model
         }
         return $valiny;
     }
+    public function inscription($nom,$mail,$mdp)
+    {
+        $sql = "insert into Utilisateur(nom,email,mdp) values(%s,%s,%s)";
+        $sql = sprintf($sql, $this->db->escape($nom), $this->db->escape($mail), $this->db->escape($mdp));
+        $query = $this->db->query($sql);
+        
+    }
     public function listcategorie()
     {
         $sql="select * from categorie";
@@ -76,5 +83,9 @@ class Model extends CI_Model
         }
         return $result;
     }
+    // public function acceptexchange(){
+    //     $idpropo=$this->
+    //     $sql=
+    // }
 }
 ?>
