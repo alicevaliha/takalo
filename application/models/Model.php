@@ -25,7 +25,7 @@ class Model extends CI_Model
     }
     public function listcategorie()
     {
-        $sql="select * from categorie";
+        $sql="select * from Categorie";
         $query = $this->db->query($sql);
         $result = array();
 
@@ -67,7 +67,7 @@ class Model extends CI_Model
         return $row;
     }
     public function proposer($iddemandeur,$idproprio,$idobjetd,$idobjeto){
-        $sql="insert into proposition values (null,%s,%s,%s,%s,0)";
+        $sql="insert into Proposition values (null,%s,%s,%s,%s,0)";
         $sprint=sprintf($sql,$iddemandeur,$idproprio,$idobjetd,$idobjeto);
         $query = $this->db->query($sprint);
     }
@@ -86,13 +86,13 @@ class Model extends CI_Model
     
     function acceptprop($idprop){
         
-        $sql="update proposition set stat=1 where id_proposition='%s' ";
+        $sql="update Proposition set stat=1 where id_Proposition='%s' ";
         $sprint=sprintf($sql,$idprop);
         $query2 = $this->db->query($sprint);
 
         
         
-        $sql2 = "select * from proposition where id_proposition='%s'";
+        $sql2 = "select * from Proposition where id_Proposition='%s'";
         $sprint2=sprintf($sql2,$idprop);
         $query = $this->db->query($sprint2);
        // $query = $this->db->query($sprint);
@@ -104,7 +104,7 @@ class Model extends CI_Model
         $accepteur = $result['id_proprio'];
         $objetoffert = $result['id_objetoffert'];
 
-        $sqlautre="update proposition set stat=2 where id_proposition !='%s' and id_objetdemande=%s ";
+        $sqlautre="update Proposition set stat=2 where id_Proposition !='%s' and id_objetdemande=%s ";
         $sprintautre=sprintf($sql,$objetdemande);
        
         $queryautre = $this->db->query($sprintautre);
@@ -125,7 +125,7 @@ class Model extends CI_Model
     }
     function declineprop($idprop){
         
-        $sql="update proposition set stat=2 where id_proposition='%s' ";
+        $sql="update Proposition set stat=2 where id_Proposition='%s' ";
         $sprint=sprintf($sql,$idprop);
         $query = $this->db->query($sprint);
         
@@ -141,6 +141,18 @@ class Model extends CI_Model
             $result[] = $row;
         }
         return $result;
+    }
+    public function membersnum(){
+        $sql="select count(id_utilisateur) as membres from Utilisateur;";
+        $query = $this->db->query($sql);
+        $row = $query->row_array();
+        return $row;
+    }
+    public function exchangesnum(){
+        $sql="select count(moment) as exchanges from exchanges;";
+        $query = $this->db->query($sql);
+        $row = $query->row_array();
+        return $row;
     }
     // public functio
     // public function acceptexchange(){

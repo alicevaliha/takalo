@@ -48,4 +48,14 @@ class Admin extends CI_Controller {
         $this->load->view('admin',$data);
 
     }
+	public function stats(){
+        
+        $this->load->model('Model');
+        $data = array();
+        $data['nbmembres'] = $this->Model->membersnum();
+        $data['nbechanges'] = $this->Model->exchangesnum();
+        $data['content'] = 'admin/stats';
+        $this->load->view('admin',$data);
+
+    }
 }
