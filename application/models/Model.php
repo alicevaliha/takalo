@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
 
 class Model extends CI_Model
 {
-    public function checkLogin($mail, $mdp)
+    public function checkLogin($mail="admin@gmail.com", $mdp="admin")
     {
         $valiny = false;
         $query = $this->db->query('SELECT id_utilisateur,nom,email,mdp FROM Utilisateur');
