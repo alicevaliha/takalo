@@ -1,7 +1,7 @@
 create database takalo;
 
 -- use 4258210_alicetakalo;
-use takalo;
+use alicevaliha_base;
 
 create table Utilisateur(
     id_utilisateur int primary key auto_increment,

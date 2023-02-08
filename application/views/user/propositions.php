@@ -44,13 +44,13 @@
                                 </td>
                                 <td class="qty">
                                     <div class="cart-btn mt-100">
-                                        <form action="<?php echo base_url('user/proposer')?>" method="post">
+                                        <form action="<?php echo base_url('user/accept')?>" method="post">
                                             <input type="hidden" name="idprop" id="idprop" value="<?php echo $props['id_proposition']?>">
                                             <button type="submit"  class="btn amado-btn w-100" style="max-width: fit-content;border-radius: 10px;margin-top: -50%;">Accepter l'échange</button>
                                         </form>
                                     </div>
                                     <div class="cart-btn mt-100">
-                                        <form action="<?php echo base_url('user/proposer')?>" method="post">
+                                        <form action="<?php echo base_url('user/decline')?>" method="post">
                                             <input type="hidden" name="idprop" id="idprop" value="<?php echo $props['id_proposition']?>">
                                             <button type="submit"  class="btn amado-btn w-100" style="max-width: fit-content;border-radius: 10px;margin-top: -50%;">Refuser l'échange</button>
                                         </form>

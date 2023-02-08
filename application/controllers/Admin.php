@@ -39,4 +39,13 @@ class Admin extends CI_Controller {
 	public function adminpage(){
 		$this->load->view('admin');
 	}
+	public function productbycat(){
+        $this->load->model('Model');
+        $cat=$this->input->post("categorie");
+        $data = array();
+        $data['listbycat'] = $this->Model->listbycat($cat);
+        $data['content'] = 'admin/listbycat';
+        $this->load->view('admin',$data);
+
+    }
 }
