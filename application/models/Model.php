@@ -154,6 +154,58 @@ class Model extends CI_Model
         $row = $query->row_array();
         return $row;
     }
+    
+    public function researchmodel($cat,$motclé){
+
+        $sql = "SELECT descri AS motcle, id_objet from Objet where id_cat=%s";
+        $sprint= sprintf($sql,$this->db->escape($cat));
+        $splits = $this->db->query($sprint);
+        $result = array();
+        $stack = array();
+
+        foreach($splits->result_array() as $row)
+        {
+            $result[] = $row;
+        }
+       // return $result;
+       
+        $nbresult = count($result);
+        
+        for($i=0;$i<$nbresult;$i++){
+            $all=explode(" ",$result[$i]['motcle']);
+            //return $all;
+            $nbmots=count($all);
+            for($o=0;$o<$nbmots;$o++){
+                if(strcasecmp($motclé,$all[$o])==0){
+                    array_push($stack,$result[$i]['id_objet']);
+                }else{}
+            }
+        }
+        // $stack= array();
+        // $stack = explode(" ",$result['motcle'])
+        // foreach($stack){
+        //     if(str_contains($motclé,$res['motclé'])){
+        //         array_push($stack,$res['id_objet']);
+        //     }else{}
+        // }
+
+        $objets = implode(",", $stack);
+        //return $objets;
+        $sqlbis="SELECT * from v_allobjects2 where id_objet in (%s)";
+        $sprint2=sprintf($sqlbis,$objets);
+        $query2 = $this->db->query($sprint2);
+        $result2 = array();
+
+        foreach($query2->result_array() as $row)
+        {
+            $result2[] = $row;
+        }
+        if(count($result2)==0){
+            return "string";
+        }else{
+            return $result2;
+        } 
+    }
     // public functio
     // public function acceptexchange(){
     //     $idpropo=$this->

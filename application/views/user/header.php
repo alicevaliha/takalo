@@ -30,8 +30,19 @@
             <div class="row">
                 <div class="col-12">
                     <div class="search-content">
-                        <form action="#" method="get">
+                        <form action="<?php echo base_url('user/research')?>" method="get">
                             <input type="search" name="search" id="search" placeholder="Type your keyword...">
+                            <select name="categorie" id="categorie">
+                                <option value="">choisir votre categorie</option>
+                                <?php if(isset($categories))  {  ?>
+                                    <?php foreach($categories as $cat) { ?>
+                                        <option value="<?php echo $cat['id_categorie']?>"><?php echo $cat['nom_categorie']?></option>
+                                    <?php }
+                                    ?>
+                                <?php }
+                                ?>
+
+                            </select>
                             <button type="submit"><img src="<?php echo site_url() ?>assets/website/img/core-img/search.png" alt=""></button>
                         </form>
                     </div>
