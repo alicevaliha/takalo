@@ -4,6 +4,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/login/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/login/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/login/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/login/css/style.css">
     <title>Login Page Takalo</title>
   </head>
   <body>
@@ -30,7 +39,7 @@
               </div>
               
 
-              <input type="submit" value="Log In" class="btn btn-block btn-primary">
+              <input type="submit" value="Log In" class="btn btn-block btn-primary" style= "background-color: red;">
 
             </form>
           </div>

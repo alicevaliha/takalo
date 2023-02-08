@@ -206,6 +206,13 @@ class Model extends CI_Model
             return $result2;
         } 
     }
+    function historique($idobjet){
+        $sql="select * from historique where id_objet=%s";
+        $sprint=sprintf($sql,$idobjet);
+        $query = $this->db->query($sql);
+        $row = $query->row_array();
+        return $row;
+    }
     // public functio
     // public function acceptexchange(){
     //     $idpropo=$this->
